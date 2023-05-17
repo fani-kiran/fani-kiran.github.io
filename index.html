@@ -4677,29 +4677,33 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Form">
+			<form>
 			<div id="Field_-_Name">
 				<div id="Label">
 					<span>Let’s meet. What’s your name?</span>
-				</div>
-				<svg class="Input">
+				</div><br><br>
+				<input type="text" id="fname" name="fname" size="26" style="font-size: 30pt"><br>
+				<!--<svg class="Input">
 					<rect id="Input" rx="5" ry="5" x="0" y="0" width="536" height="55">
 					</rect>
-				</svg>
+				</svg>-->
 			</div>
 			<div id="Field_-_Email">
 				<div id="Label_c">
 					<span>And your email…</span>
-				</div>
-				<svg class="Input_c">
+				</div><br><br>
+				<input type="email" id="email" name="email" size="26" style="font-size: 30pt">
+				<!--<svg class="Input_c">
 					<rect id="Input_c" rx="5" ry="5" x="0" y="0" width="536" height="55">
 					</rect>
-				</svg>
+				</svg>-->
 			</div>
 			<div id="Field_-_Help">
 				<div id="Label_da">
 					<span>How can I help you?</span>
-				</div>
-				<div id="Dropdown">
+				</div><br><br>
+				<input type="text" id="help" name="help" size="12" style="font-size: 30pt">
+				<!--<div id="Dropdown">
 					<svg class="Background_c">
 						<rect id="Background_c" rx="5" ry="5" x="0" y="0" width="260" height="55">
 						</rect>
@@ -4711,13 +4715,14 @@ window.application = new Application();
 						<path id="Icon" d="M 16.29299926757812 9.293000221252441 L 12 13.58600044250488 L 7.706999778747559 9.293000221252441 L 6.293000221252441 10.70699977874756 L 12 16.41399955749512 L 17.70700073242188 10.70699977874756 L 16.29299926757812 9.293000221252441 Z">
 						</path>
 					</svg>
-				</div>
+				</div>-->
 			</div>
 			<div id="Field_-_Priority">
 				<div id="Label_dd">
 					<span>What’s the priority?</span>
-				</div>
-				<div id="Dropdown_de">
+				</div><br><br>
+				<input type="text" id="priority" name="priority" size="12" style="font-size: 30pt">
+				<!--<div id="Dropdown_de">
 					<svg class="Background_df">
 						<rect id="Background_df" rx="5" ry="5" x="0" y="0" width="260" height="55">
 						</rect>
@@ -4729,13 +4734,14 @@ window.application = new Application();
 						<path id="Icon_dh" d="M 16.29299926757812 9.293000221252441 L 12 13.58600044250488 L 7.706999778747559 9.293000221252441 L 6.293000221252441 10.70699977874756 L 12 16.41399955749512 L 17.70700073242188 10.70699977874756 L 16.29299926757812 9.293000221252441 Z">
 						</path>
 					</svg>
-				</div>
+				</div>-->
 			</div>
 			<div id="FIeld_-_Message">
 				<div id="Label_dj">
 					<span>Tell me more about your project</span>
-				</div>
-				<div id="Textarea">
+				</div><br><br>
+				<textarea id="tellmore" name="tellmore" rows="10" cols="65"></textarea>
+				<!--<div id="Textarea">
 					<svg class="Background_dl">
 						<rect id="Background_dl" rx="5" ry="5" x="0" y="0" width="536" height="160">
 						</rect>
@@ -4743,10 +4749,11 @@ window.application = new Application();
 					<div id="Placeholder">
 						<span>Budget, extra details, deadlines, special requirements…</span>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div id="Submit">
-				<svg class="Background_dp">
+				<input type="submit" value="Let’s work!" size="20">
+				<!--<svg class="Background_dp">
 					<linearGradient id="Background_dp" spreadMethod="pad" x1="0.062" x2="0.958" y1="0.106" y2="0.809">
 						<stop offset="0" stop-color="#e95841" stop-opacity="1"></stop>
 						<stop offset="1" stop-color="#e94b63" stop-opacity="1"></stop>
@@ -4756,8 +4763,9 @@ window.application = new Application();
 				</svg>
 				<div id="Lets_work">
 					<span>Let’s work!</span>
-				</div>
+				</div>-->
 			</div>
+			</form>
 		</div>
 	</div>
 	<div id="Footer">
