@@ -6,6 +6,9 @@
 	font-size: 100%;
 	line-height: 150%;
 }
+h1{
+	margin-left: 10%;
+}
 body{
 	margin: 0;
 	padding: 0;
@@ -126,4 +129,25 @@ body{
 a {
   text-decoration: none;
 }
-#resizedTextbox {height: 120px}
+#resizedTextbox {
+	height: 120px;
+}
+#footer{
+	background-color: #F9F9F9;
+	min-height: 40px;
+}
+.creativbox{
+	font-size: 100%;
+	line-height: 100%;
+	/*max-width: 600px;
+	min-width: 250px;*/
+	border-radius: 20px;
+	margin-left: 40px;
+	margin-bottom: 40px;
+	margin-right: 40px;
+	padding: 10px;
+	padding-bottom: 30px;
+	background-color: #ffffff;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	overflow: visible;
+}
