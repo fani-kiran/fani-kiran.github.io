@@ -120,3 +120,10 @@ body{
 .btn-group .button:active {
 	background-color:#FAE0DC;
 }
+.pagebreak{
+	height: 100px;
+}
+a {
+  text-decoration: none;
+}
+#resizedTextbox {height: 120px}
