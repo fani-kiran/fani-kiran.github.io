@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* CSS Document */
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, Arial, "sans-serif";
+	font-size: 100%;
+	line-height: 150%;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+#Index {
+	width: 100%;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+/*#Header {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 100%;
+	background-color: #F9F9F9;
+	position:fixed;
+	z-index: 999;
+}*/
+#Hero {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 100%;
+	min-height: 768px;
+	overflow: hidden;
+	background-color: #F9F9F9;
+}
+/* Clearfix (clear floats) */
+.row {
+	clear: both;
+	display: flex;
+	width: 100%;
+}
+.column {
+	display: block;
+	float: left;
+	width: 50%;
+	padding: 5px;
+	margin: auto;
+	justify-content: center;
+	align-content: center;
+}
+.title {
+	font-weight:bold;
+	font-size: 220%;
+	line-height: 120%;
+	margin-left: 10%;
+}
+.subtitle {
+	font-size: 120%;
+	line-height: 120%;
+	margin-left: 10%;
+}
+.Description{
+	font-size: 100%;
+	line-height: 100%;
+	max-width: 500px;
+	min-width: 250px;
+	margin-left: 10%;
+}
+.rectangle {
+    height: 10px;
+    width: 100px;
+	margin-bottom: 30px;
+	margin-top: 10px;
+    background-color: #E95841;
+    margin-left: 10%;
+}
+.avatarcircle {
+	height: 50px;
+	width: 50px;
+	background-color: #555;
+	border-radius: 50%;
+}
+.social {
+    height: 50px;
+    width: 512px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+#Avatar{
+	align-content: center;
+}
+.page{
+	display: block;
+	justify-content: center;
+	align-content: center;
+	width: 100%;
+	min-height: 200px;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+.btn-group .button {
+	background-color: #E95841;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	cursor: pointer;
+	float: left;
+	border-radius: 50px;
+	width: 200px;
+	margin-right: 24px;
+}
+.btn-group .button:hover {
+	background-color:#D8422B;
+}
+.btn-group .button:active {
+	background-color:#FAE0DC;
+}
