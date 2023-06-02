@@ -18,7 +18,7 @@ body{
 	background-color: #FFFFFF;
 	overflow: hidden;
 }
-/*#Header {
+#Header {
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -26,7 +26,7 @@ body{
 	background-color: #F9F9F9;
 	position:fixed;
 	z-index: 999;
-}*/
+}
 #Hero {
 	display: flex;
 	justify-content: center;
