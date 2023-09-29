@@ -21,7 +21,6 @@ body {
 .contact-info p {
     margin: 10px 0;
 }
-.add-contact-button,
 .download-vcard-button {
     position: fixed;
     bottom: 20px;
@@ -29,8 +28,6 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-.add-contact-button {
     background-color: #007bff;
     color: #fff;
 }
