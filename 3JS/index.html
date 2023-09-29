@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three.js Cube and Plane Example</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create a cube
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    // Create a plane
+    const planeGeometry = new THREE.PlaneGeometry(2, 2); // Size of the plane
+    const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    scene.add(plane);
+
+    // Position the objects
+    camera.position.z = 5;
+    cube.position.x = -2; // Position the cube on the left side
+    plane.position.x = 2; // Position the plane on the right side
+
+    // Add text to the plane
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
+    const textMaterial = new THREE.MeshBasicMaterial({ map: texture });
+
+    const textGeometry = new THREE.PlaneGeometry(1.5, 1.5); // Size of the text
+    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+    plane.add(textMesh);
+
+    // Render the scene
+    function animate() {
+      requestAnimationFrame(animate);
+      // Rotate the cube and plane
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      plane.rotation.x += 0.01;
+      plane.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

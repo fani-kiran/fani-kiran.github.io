@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.profile-photo {
+    max-width: 100%;
+    height: auto;
+}
+.contact-info {
+    margin-top: 20px;
+}
+.contact-info p {
+    margin: 10px 0;
+}
+.add-contact-button,
+.download-vcard-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-contact-button {
+    background-color: #007bff;
+    color: #fff;
+}
