@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Fani Kiran
+TEL;TYPE=CELL:+919949693644
+EMAIL;TYPE=HOME:hellofani@yahoo.com
+ADR;TYPE=HOME:;;123 Harluru;Bengaluru;Karnataka;560068;India
+URL:https://fani-kiran.github.io
+NOTE:This is a note or comment associated with the contact.
+PHOTO;VALUE=URL:https://fani-kiran.github.io/images/Shadow.png
+TITLE:Technical Artist
+ROLE:Manager
+END:VCARD
