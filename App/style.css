@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* MICHAEL RENALD - PRODUCTION CSS 
+  Generated via Tailwind CLI for maximum performance 
+*/
+
+/* Base Layer */
+*, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e2e8f0; }
+html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+body { margin: 0; line-height: inherit; background-color: #f8fafc; color: #0f172a; }
+
+/* Custom Hero Gradient */
+.hero-gradient { 
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+}
+
+/* Professional Journey Timeline */
+.timeline-container { 
+    border-left: 2px solid #e2e8f0; 
+    margin-left: 1rem; 
+    padding-left: 2rem; 
+    position: relative; 
+}
+
+.timeline-dot { 
+    position: absolute; 
+    left: -7px; 
+    top: 5px; 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+    background: #2563eb; 
+    border: 2px solid #fff; 
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Utilities (Generated for your specific layout) */
+.max-w-6xl { max-width: 72rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.flex { display: flex; }
+.grid { display: grid; }
+.rounded-full { border-radius: 9999px; }
+.shadow-2xl { --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); }
+.bg-blue-600 { background-color: rgb(37 99 235); }
+.text-blue-600 { color: rgb(37 99 235); }
+.hover\:scale-105:hover { transform: scale(1.05); }
+.transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .md\:flex-row { flex-direction: row; }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
