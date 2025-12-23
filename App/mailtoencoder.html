@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailto | The mailto encoder</title>
+    <style>
+        :root {
+            --bg-color: #f7f7f7;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #eaeaea;
+            --accent-color: #0070f3;
+            --accent-hover: #005bb5;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.05rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.15s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .output-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .result-box {
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 1rem;
+            font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            color: #333;
+            margin-bottom: 1rem;
+            min-height: 24px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--text-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: black;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: #999;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #888;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dotted #333;
+        }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 250px; 
+            background-color: #333; 
+            color: #fff; 
+            text-align: center; 
+            border-radius: 4px; 
+            padding: 16px; 
+            position: fixed; 
+            z-index: 1; 
+            bottom: 30px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mailto: link generator</h1>
+            <div class="subtitle">mailto: link with recipients, subject lines, and body text</div>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label for="to">To</label>
+                <input type="text" id="to" placeholder="recipient@example.com">
+          </div>
+
+            <div class="input-group">
+                <label for="cc">CC</label>
+                <input type="text" id="cc" placeholder="cc@example.com">
+            </div>
+
+            <div class="input-group">
+                <label for="bcc">BCC</label>
+                <input type="text" id="bcc" placeholder="bcc@example.com">
+            </div>
+
+            <div class="input-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Email Subject">
+            </div>
+
+            <div class="input-group">
+                <label for="body">Body</label>
+                <textarea id="body" placeholder="Email body content..."></textarea>
+            </div>
+
+            <div class="output-section">
+                <label>Generated Code</label>
+                <div class="result-box" id="result">mailto:</div>
+                
+                <div class="actions">
+                    <button class="btn-primary" id="copyBtn">Copy Code</button>
+                    <button class="btn-secondary" id="testBtn">Test Email</button>
+                </div>
+            </div>
+      </div>
+
+        <footer>
+        Tools Built by <a href="https://fani-kiran.github.io/">hellofani</a></footer>
+</div>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
+    <script>
+        const inputs = ['to', 'cc', 'bcc', 'subject', 'body'];
+        const resultBox = document.getElementById('result');
+        const copyBtn = document.getElementById('copyBtn');
+        const testBtn = document.getElementById('testBtn');
+
+        function generateMailto() {
+            const values = inputs.reduce((acc, id) => {
+                acc[id] = document.getElementById(id).value;
+                return acc;
+            }, {});
+
+            let link = 'mailto:';
+            
+            // Add recipient
+            if (values.to) {
+                link += encodeURIComponent(values.to);
+            }
+
+            // Collect query parameters
+            const params = [];
+
+            if (values.cc) params.push(`cc=${encodeURIComponent(values.cc)}`);
+            if (values.bcc) params.push(`bcc=${encodeURIComponent(values.bcc)}`);
+            if (values.subject) params.push(`subject=${encodeURIComponent(values.subject)}`);
+            if (values.body) params.push(`body=${encodeURIComponent(values.body)}`);
+
+            if (params.length > 0) {
+                link += '?' + params.join('&');
+            }
+
+            resultBox.textContent = link;
+            return link;
+        }
+
+        // Add event listeners to all inputs
+        inputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', generateMailto);
+        });
+
+        // Copy functionality
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = resultBox.textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+
+        // Test functionality (opens the link)
+        testBtn.addEventListener('click', () => {
+            window.location.href = resultBox.textContent;
+        });
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "toast show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // Initial generation
+        generateMailto();
+    </script>
+</body>
+</html>
